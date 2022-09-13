@@ -1,3 +1,5 @@
+import { Topic } from "./Topic";
+import styles from "./Subject.module.css";
 interface Topic {
   id: number;
   topicName: string;
@@ -12,10 +14,24 @@ interface SubjectProps {
   topics: Topic[];
 }
 
-export function Subject({ topics }: SubjectProps) {
+export function Subject({ topics, id, subjectName }: SubjectProps) {
   return (
     <>
-      <h1>Subjecta</h1>
+      <div className={styles.subjectCard}>
+        <h3>{subjectName}</h3>
+      </div>
+
+      <div className={styles.subjectList}>
+        {topics.map((topic) => (
+          <Topic
+            key={topic.id}
+            id={topic.id}
+            topicName={topic.topicName}
+            link={topic.link}
+            requirement={topic.requirement}
+          />
+        ))}
+      </div>
     </>
   );
 }

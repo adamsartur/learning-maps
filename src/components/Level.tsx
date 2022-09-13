@@ -2,7 +2,8 @@
 // this, by declaring once and exporting instead of
 // redeclaring.. will look into that
 
-import { Topic } from "./Topic";
+import { Subject } from "./Subject";
+import styles from "./Level.module.css";
 
 interface Topic {
   id: number;
@@ -26,23 +27,23 @@ interface LevelProps {
 
 export function Level({ subjects, levelName, id }: LevelProps) {
   return (
-    <>
-      <h1>
-        <strong>{id} - </strong>
+    <div className={styles.level}>
+      <h2>
+        <strong>{id}</strong>
         {levelName}
-      </h1>
+      </h2>
 
       {subjects.map((subject) => (
         <div>
-          <h2>{subject.subjectName}</h2>
-          <Topic
+          <Subject
             key={subject.id}
             id={subject.id}
             subjectName={subject.subjectName}
             topics={subject.topics}
+            dependencies={subject.dependencies}
           />
         </div>
       ))}
-    </>
+    </div>
   );
 }

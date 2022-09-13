@@ -1,5 +1,5 @@
 import { Level } from "./Level";
-
+import styles from "./LearningMap.module.css";
 interface Topic {
   id: number;
   topicName: string;
@@ -26,33 +26,19 @@ interface LearningMapProps {
   levels: Level[];
 }
 
-export function LearningMap({ levels }: LearningMapProps) {
+export function LearningMap({ levels, learningName }: LearningMapProps) {
   return (
-    <>
-      <h1>LearningMap</h1>
+    <div className={styles.learningMap}>
+      <h1>{learningName}</h1>
 
       {levels.map((level) => (
-        <div>
-          <h2>{level.levelName}</h2>
-          <Level
-            key={level.id}
-            id={level.id}
-            levelName={level.levelName}
-            subjects={level.subjects}
-          />
-        </div>
+        <Level
+          key={level.id}
+          id={level.id}
+          levelName={level.levelName}
+          subjects={level.subjects}
+        />
       ))}
-
-      {/* {levels.map((level) => {
-        return (
-          <Level
-            key={level.id}
-            id={level.id}
-            name={level.name}
-            subjects={level.subjects}
-          />
-        );
-      })} */}
-    </>
+    </div>
   );
 }
