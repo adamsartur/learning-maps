@@ -1,0 +1,12 @@
+.level {
+    display: flex;
+    position: relative;
+    border: 1px solid red;
+    padding-top: 4em;
+}
+
+.level h2 {
+    position: absolute;
+    top: 1em;
+    left: 1em
+}

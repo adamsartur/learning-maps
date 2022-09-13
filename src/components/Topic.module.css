@@ -1,0 +1,11 @@
+.topic {
+    display: inline-block;
+}
+
+.topicCard {
+    padding: 0.4em;
+    border: 1px solid yellow;
+    background: yellow;
+    color: black;
+    border-radius: 0.2em;
+}
